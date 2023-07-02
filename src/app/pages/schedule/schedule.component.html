@@ -1,0 +1,138 @@
+<div id="schedule-page">
+  <div
+    class="schedule-bg"
+    [ngStyle]="{
+      background: 'url(' + movieData.imageUrl + ')'
+    }"
+  ></div>
+
+  <div class="container">
+    <div class="schedule-content">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>{{ movieData.title }}</h1>
+        </div>
+      </div>
+
+      <div id="hours-section">
+        <div class="col-md-12">
+          <div class="section-title">Choose A Time</div>
+          <div class="hours-menu">
+            <div
+              class="time"
+              [ngClass]="{
+                selected: time === '3:00pm'
+              }"
+              (click)="chooseTime('3:00pm')"
+            >
+              3:00pm
+            </div>
+            <div
+              class="time"
+              [ngClass]="{
+                selected: time === '6:00pm'
+              }"
+              (click)="chooseTime('6:00pm')"
+            >
+              6:00pm
+            </div>
+            <div
+              class="time"
+              [ngClass]="{
+                selected: time === '9:00pm'
+              }"
+              (click)="chooseTime('9:00pm')"
+            >
+              9:00pm
+            </div>
+            <div
+              class="time"
+              [ngClass]="{
+                selected: time === '11:30pm'
+              }"
+              (click)="chooseTime('11:30pm')"
+            >
+              11:30pm
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">How Many Tickets?</div>
+          <div class="tickets-menu">
+            <div class="ticket-selection">
+              <div class="tickets">
+                <div class="ticket">
+                  <p>Adult</p>
+                  <input value="1" [(ngModel)]="adultsTickets" />
+                  x ${{ adultsTicketsPrice }} = ${{
+                    (adultsTicketsPrice * adultsTickets).toFixed(2)
+                  }}
+                </div>
+                <div class="ticket">
+                  <p>Child</p>
+                  <input
+                    value="{{ childTickets }}"
+                    [(ngModel)]="childTickets"
+                  />
+                  x ${{ childTicketsPrice }} = ${{
+                    (childTicketsPrice * childTickets).toFixed(2)
+                  }}
+                </div>
+
+                <div class="ticket">
+                  <p>Senior</p>
+                  <input
+                    value="{{ seniorTickets }}"
+                    [(ngModel)]="seniorTickets"
+                  />
+                  x ${{ seniorTicketsPrice }} = ${{
+                    (seniorTicketsPrice * seniorTickets).toFixed(2)
+                  }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="select-seat">
+        <div>
+          <div class="">
+            <div class="seats-grid">
+              <ng-container *ngFor="let seat of movieData.seats; index as index">
+                <div class="seat" [ngClass]="{
+                  'reserved': seat === 'reserved',
+                  'selected': seat === 'selected',
+                  'available': seat === 'available'
+                }" (click)="clickedSeat(movieData.slug, index)"></div>
+              </ng-container>
+            </div>
+            <div class="button-container">
+              <button (click)="clickedContinue()">Continue</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="seats-legend">
+          <div class="template">
+            <div class="col-xs-3">
+              <div class="selected-box"></div>
+              Selected
+            </div>
+            <div class="col-xs-3">
+              <div class="selected-box-2"></div>
+              Reserved
+            </div>
+            <div class="col-xs-3">
+              <div class="selected-box-3"></div>
+              Available
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div id="movies-list">
+  <div class="row">
+
+    <div class="col-md-3" *ngFor = "let movie of moviesData" >
+      <div class="movie-box" (click) = "clickedMovie(movie.slug)">
+            <img  src= {{movie.imageUrl}}/>
+            <div class = 'av available'>
+              <div class="status">
+                Tickets Available
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

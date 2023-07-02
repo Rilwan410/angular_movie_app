@@ -1,0 +1,30 @@
+<div id="movie-page">
+  <div
+    class="movie-bg"
+    [ngStyle]="{
+      background: 'url(' + movieData.imageUrl + ')'
+    }"
+  ></div>
+
+  <div class="container">
+    <div class="movie-content">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{{ movieData.imageUrl }}" class="movie-poster" />
+        </div>
+        <div class="col-md-6">
+          <h1>{{ movieData.title }}</h1>
+          <div class="release-date">
+            Release Date: {{ movieData.releaseData }}
+          </div>
+          <p>
+            {{ movieData.movieDescription }}
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-primary btn" (click) = "clickedTickets(movieData.slug)">Get Tickets</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

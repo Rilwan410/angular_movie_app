@@ -1,0 +1,23 @@
+@import "~bootstrap/dist/css/bootstrap.min.css" ;
+
+body{
+    background:#f6f6f6;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
+
+*{
+  margin:0;
+  padding:0;
+  margin-block-start:0;
+  margin-block-end:0;
+}
+:root {
+  --bg : #0d0b5b;
+  --font-color : #333333;
+  --point-color : #237fff;
+}
+body{
+  background : var(--bg);
+  font-family: 'Nunito Sans', sans-serif;
+}
